@@ -126,6 +126,7 @@ class Game():
                     else:
                         print("exit game!!\n")
                         os._exit(0)
+            print("no more Guess, Game finished")
 
 
     def show_all_the_phrase(self):
