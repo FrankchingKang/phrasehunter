@@ -1,7 +1,8 @@
 # Create your Game class logic in here.
-from phrasehunter.phrase import Phrase
 import re
 import os
+from phrasehunter.phrase import Phrase
+
 
 class Game():
     """The class should include an initializer or def __init__ method that receives a phrases parameter
@@ -125,3 +126,12 @@ class Game():
                     else:
                         print("exit game!!\n")
                         os._exit(0)
+
+
+    def show_all_the_phrase(self):
+        for phrase in self.Activephrase:
+            print(type(phrase))
+            for char in phrase:
+                # why this char class is not Character but str?
+                print(type(char))
+                print(char)

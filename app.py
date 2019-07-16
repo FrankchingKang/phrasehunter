@@ -9,8 +9,11 @@
 from phrasehunter.character import Character
 from phrasehunter.phrase import Phrase
 from phrasehunter.game import Game
+
+
 if __name__ == "__main__":
 
-
     Guess_words = Game("apple","book","logitech","dell","amuze")
-    Guess_words.game_on()
+    #Guess_words.game_on()
+
+    Guess_words.show_all_the_phrase()
