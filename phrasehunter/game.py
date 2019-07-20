@@ -14,12 +14,14 @@ class Game():
     getting player's input() guesses to pass to a Phrase object to perform its responsibilities against,
     determining if a win/loss happens after the player runs out of turns or the phrase is completely guessed."""
 
-    def __init__(self, *phrases):
+    def __init__(self, phrases):
         self.guess = False
         self.life = 5
-        self.Activephrase = []
-        for phrase in phrases:
-            self.Activephrase.append(Phrase(phrase))
+        self.allpharases = phrases
+        self.Activephrase = self.allpharases.pop()
+        #print(type(self.Activephrase))
+        #for phrase in phrases:
+        #    self.Activephrase.append(Phrase(phrase))
 
 
     def get_letter(self):
@@ -103,30 +105,42 @@ class Game():
         self.life = 5
         hidden_phrase.reset_phrase()
 
+    def reset_life(self):
+        self.life = 5
+
+
+#    def __iter__(self):
+#        pass
 
 
     def game_on(self):
         print("staring game:")
-        for hidden_phrase in self.Activephrase:
+        while True:
             while True:
-                hidden_phrase.show_the_pharse()
+                self.Activephrase.show_the_pharse()
                 # getting the letter and check whether the player's guess is right
-                self.check_the_guess(hidden_phrase, self.get_letter())
+                self.check_the_guess(self.Activephrase, self.get_letter())
                 # life status,  if life is 0 then the player loss
                 if self.check_life(self.guess) == 0:
                     if self._play_again():
-                        self.reset_game(hidden_phrase)
+                        self.reset_game(self.Activephrase)
                     else:
                         print("exit game!!\n")
                         os._exit(0)
 
-                if self.win_or_not(hidden_phrase):
+                if self.win_or_not(self.Activephrase):
                     if self._play_next():
+                        self.reset_life()
                         break
                     else:
                         print("exit game!!\n")
                         os._exit(0)
-            print("no more Guess, Game finished")
+            if self.allpharases:
+                self.Activephrase = self.allpharases.pop()
+            else:
+                break
+
+        print("no more Guess, Game finished")
 
 
     def show_all_the_phrase(self):

@@ -14,11 +14,11 @@ Iterating over its collection of Character to allow a guess to be checked using 
 The instance method names and their implementation are up to you to determine.
     """
 
-    def __init__(self, phrase):
-        super().__init__(phrase)
+    def __init__(self, phrases):
+        super().__init__(phrases)
         self.phrase = []
         self.guessed = False
-        for char in phrase:
+        for char in phrases:
             self.phrase.append(Character(char))
 
 

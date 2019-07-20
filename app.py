@@ -13,7 +13,9 @@ from phrasehunter.game import Game
 
 if __name__ == "__main__":
 
-    Guess_words = Game("apple","book","logitech","dell","amuze")
+    #phrase_for_guss = Phrase("apple", "book", "logitech", "dell", "amuze")
+    phrase_for_guss = [Phrase('apple'), Phrase('book'),Phrase('logitech'), Phrase('dell'), Phrase('amuze')]
+    Guess_words = Game(phrase_for_guss)
     Guess_words.game_on()
 
     #Guess_words.show_all_the_phrase()
