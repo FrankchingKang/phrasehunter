@@ -44,6 +44,10 @@ The instance method names and their implementation are up to you to determine.
         return self.guessed
 
 
+    def __iter__(self):
+        for item in self.phrase:
+            yield item
+
     def reset_phrase(self):
         self.guessed = False
         for char in self.phrase:

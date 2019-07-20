@@ -144,7 +144,7 @@ class Game():
 
 
     def show_all_the_phrase(self):
-        for phrase in self.Activephrase:
+        for phrase in self.allpharases:
             print(type(phrase))
             for char in phrase:
                 # why this char class is not Character but str?
